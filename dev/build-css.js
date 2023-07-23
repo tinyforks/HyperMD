@@ -2,7 +2,7 @@
 
 const path = require('path')
 const fs = require('fs')
-const glob = require('glob')
+const { glob } = require('glob')
 const sass = require('sass')
 
 function scan_and_compile(pattern = "**/*.scss", watch = false) {

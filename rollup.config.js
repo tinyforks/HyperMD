@@ -1,6 +1,6 @@
 import buble from 'rollup-plugin-buble'
 import typescript from 'rollup-plugin-typescript2'
-import { uglify } from 'rollup-plugin-uglify'
+import terser from '@rollup/plugin-terser'
 
 const { banner, globalNames, externalNames, bundleFiles } = require(__dirname + '/dev/HyperMD.config')
 
@@ -14,11 +14,7 @@ const plugins = {
       }
     }
   }),
-  uglify: uglify({
-    output: {
-      comments: /^!/,
-    },
-  }),
+  uglify: terser(),
   buble: buble({
     namedFunctionExpressions: false,
     transforms: {
