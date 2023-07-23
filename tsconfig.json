@@ -8,7 +8,14 @@
       "dom"
     ],
     "declaration": true,
-    "outDir": "."
+    "outDir": ".",
+    "baseUrl": ".",
+    "moduleResolution": "node",
+    "paths": {
+      "*": [
+        "node_modules/*"
+      ]
+    },
   },
   "include": [
     "src/**/*.ts"

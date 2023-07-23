@@ -2,22 +2,20 @@
 
 const path = require('path')
 const fs = require('fs')
-const { glob } = require('glob')
+const { globSync } = require('glob')
 const sass = require('sass')
 
 function scan_and_compile(pattern = "**/*.scss", watch = false) {
-  glob(pattern, {
+  globSync(pattern, {
     ignore: "node_modules/**/*"
-  }, (err, matches) => {
-    matches.forEach(filename => {
-      compile_sass(filename)
+  }).forEach(filename => {
+    compile_sass(filename)
 
-      if (watch) {
-        // `watch` option is currently not supported by new SASS
-        // https://github.com/sass/dart-sass/issues/264
-        fs.watchFile(filename, () => { compile_sass(filename) })
-      }
-    })
+    if (watch) {
+      // `watch` option is currently not supported by new SASS
+      // https://github.com/sass/dart-sass/issues/264
+      fs.watchFile(filename, () => { compile_sass(filename) })
+    }
   })
 }
 
