@@ -1,0 +1,3 @@
+[submodule "submodules/flowchart.js"]
+	path = submodules/flowchart.js
+	url = https://github.com/adrai/flowchart.js

@@ -69,6 +69,7 @@ function boot_test(modules, loaded, opts) {
       paths: {
         "hypermd": basepath,
         "hypermd_test": basepath + "/test/js",
+        "Raphael": "raphael", // flowchart.js bug
       },
 
       // Remove `packages` if you occur errors with CDN

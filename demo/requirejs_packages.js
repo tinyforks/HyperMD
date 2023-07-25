@@ -22,7 +22,7 @@ var requirejs_packages = [
   { name: 'turndown-plugin-gfm', main: 'dist/turndown-plugin-gfm.js' },
   { name: 'emojione', main: 'lib/js/emojione.min.js' },
   { name: 'twemoji', main: '2/twemoji.amd.js' },
-  { name: 'flowchart.js', main: 'release/flowchart.min.js' },
+  { name: 'flowchart.js', main: '../../submodules/flowchart.js/release/flowchart.min.js' },
   { name: 'Raphael', main: 'raphael.min.js' }, // stupid
   { name: 'raphael', main: 'raphael.min.js' },
   // { name: 'mermaid', main: 'dist/mermaid.js' }, // mermaid AMD is buggy and unavaliable
