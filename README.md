@@ -24,6 +24,18 @@ var editor = HyperMD.fromTextArea(myTextarea)
 
 Also for RequireJS, Parcel, webpack, plain browser env. [Read the Doc](./docs/quick-start.md)
 
+### Start Development
+
+```bash
+# Install packages
+npm run dev_init
+
+# Run demo page
+npm run dev
+
+# Run test
+npm run test
+```
 
 ## Why use HyperMD?
 

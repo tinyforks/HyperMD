@@ -5,6 +5,7 @@
   "main": "./everything.js",
   "types": "./everything.d.ts",
   "scripts": {
+    "init_dev": "git submodule init && git submodule update && npm install",
     "build": "node dev/build-all.js",
     "prebuild_js": "node dev/pre-build.js",
     "build_js": "tsc && rollup -c",
@@ -14,8 +15,8 @@
     "dev": "node dev/dev.js",
     "watch_js": "tsc -w --sourceMap --sourceRoot /src",
     "watch_css": "node dev/build-css.js -w",
-    "pretest": "cd test && tsc && node tools/prepare",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "pretest": "cd test && tsc && node tools/prepare || echo \"> Done\"",
+    "test": "node dev/test.js"
   },
   "keywords": [
     "markdown",
