@@ -126,11 +126,11 @@ You may use both original CodeMirror and HyperMD on the same page.
       </small>
     </td>
     <td>
-      <b><a href="https://www.emojione.com/">EmojiOne</a></b> - Open emoji icons<br>
+      <b><a href="https://joypixels.com/">emoji-toolkit</a></b> - Open emoji icons<br>
       <small>
-        <em>Demo Page</em> and <em>PowerPack/fold-emoji-with-emojione</em> use
-        Emoji icons provided free by <a href="https://www.emojione.com/">EmojiOne</a>
-        <a href="https://www.emojione.com/licenses/free"><em>(free license)</em></a><br>
+        <em>Demo Page</em> and <em>PowerPack/fold-emoji-with-emoji-toolkit</em> use
+        Emoji icons provided free by <a href="https://joypixels.com/">emoji-toolkit</a>
+        <a href="https://joypixels.com//licenses/free"><em>(free license)</em></a><br>
         (You may use other alternatives, eg. twemoji from twitter)
       </small>
     </td>

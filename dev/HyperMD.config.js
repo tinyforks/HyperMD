@@ -45,7 +45,7 @@ exports.globalNames = {
   katex: "katex",
   mathjax: "MathJax",
   turndown: "TurndownService",
-  emojione: "emojione",
+  emojiToolkit: "emoji-toolkit",
   twemoji: "twemoji",
   "flowchart.js": "flowchart",
   mermaid: "mermaid",

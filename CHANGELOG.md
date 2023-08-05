@@ -145,7 +145,7 @@ DON'T PUT `iframe` INTO YOUR Markdown! Once DOM changes (which is often), the if
     * In plain browser env, it's defined as `HyperMD.Fold.registerFolder`
   * **addon/fold-emoji**: fold emoji marks :smile:
   * **powerpack**
-    + fold-emoji-with-emojione
+    + fold-emoji-with-emoji-toolkit
     + fold-emoji-with-twemoji
 
 * **Other**

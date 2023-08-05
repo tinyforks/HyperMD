@@ -67,7 +67,7 @@ export interface Options extends Addon.AddonOptions {
 
   /**
    * Tired of plain text? You may provide a EmojiRenderer function,
-   * which generates a HTML Element (eg. emoji image from twemoji or emojione)
+   * which generates a HTML Element (eg. emoji image from twemoji or emoji-toolkit)
    * for standard emojis.
    *
    * Note that if EmojiRenderer returns null, the folding process will be aborted.

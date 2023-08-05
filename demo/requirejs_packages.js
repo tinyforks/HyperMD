@@ -20,7 +20,7 @@ var requirejs_packages = [
   { name: 'marked', main: 'lib/marked.js' },
   { name: 'turndown', main: 'lib/turndown.browser.umd.js' },
   { name: 'turndown-plugin-gfm', main: 'dist/turndown-plugin-gfm.js' },
-  { name: 'emojione', main: 'lib/js/emojione.min.js' },
+  { name: 'emoji-toolkit', main: 'lib/js/joypixels.min.js' },
   { name: 'twemoji', main: '2/twemoji.amd.js' },
   { name: 'flowchart.js', main: '../../submodules/flowchart.js/release/flowchart.min.js' },
   { name: 'Raphael', main: 'raphael.min.js' }, // stupid

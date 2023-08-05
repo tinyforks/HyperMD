@@ -141,7 +141,7 @@ requirejs.config({
     { name: 'marked', main: 'lib/marked.js' },
     { name: 'turndown', main: 'lib/turndown.browser.umd.js' },
     { name: 'turndown-plugin-gfm', main: 'dist/turndown-plugin-gfm.js' },
-    { name: 'emojione', main: 'lib/js/emojione.min.js' },
+    { name: 'emoji-toolkit', main: 'lib/js/joypixels.min.js' },
     { name: 'twemoji', main: '2/twemoji.amd.js' },
     // ... 其他第三方资源
   ],

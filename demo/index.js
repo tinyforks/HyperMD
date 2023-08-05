@@ -70,7 +70,7 @@ require([
   /// PowerPack with third-party libraries  ///
   /////////////////////////////////////////////
 
-  'hypermd/powerpack/fold-emoji-with-emojione',
+  'hypermd/powerpack/fold-emoji-with-emoji-toolkit',
   // 'hypermd/powerpack/fold-emoji-with-twemoji',
 
   'hypermd/powerpack/insert-file-with-smms',

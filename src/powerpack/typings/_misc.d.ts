@@ -19,8 +19,8 @@ declare module "katex" {
 }
 //#endregion
 
-//#region emojione ---------------------------------------------------
-declare module "emojione" {
+//#region emoji-toolkit ---------------------------------------------------
+declare module "emoji-toolkit" {
   /**
    * Convert Shortnames to Images
    *
