@@ -17,7 +17,7 @@ var requirejs_packages = [
   { name: 'codemirror', main: 'lib/codemirror.js' },
   { name: 'mathjax', main: 'MathJax.js' },
   { name: 'katex', main: 'dist/katex.min.js' },
-  { name: 'marked', main: 'lib/marked.js' },
+  { name: 'marked', main: 'lib/marked.umd.js' },
   { name: 'turndown', main: 'lib/turndown.browser.umd.js' },
   { name: 'turndown-plugin-gfm', main: 'dist/turndown-plugin-gfm.js' },
   { name: 'emoji-toolkit', main: 'lib/js/joypixels.min.js' },
