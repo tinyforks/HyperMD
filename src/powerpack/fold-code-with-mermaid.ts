@@ -21,10 +21,7 @@ import { getAddon as getFold } from "../addon/fold"
 var mermaid: typeof _mermaid_module = _mermaid_module || this['mermaid'] || window['mermaid']
 
 export const MermaidRenderer: CodeRenderer = (code, info) => {
-  var id = "_mermaid_id_" + Math.round(1e9 * Math.random()).toString(36)
-
   var el = document.createElement('div')
-  el.setAttribute('id', id)
   el.setAttribute('class', 'hmd-fold-code-image hmd-fold-code-mermaid')
   el.innerHTML = code;
 
