@@ -11,20 +11,14 @@
 // **Example**: https://laobubu.net/HyperMD/docs/examples/mermaid.html
 //
 // :hint: to change mermaid configuration
-//
-// :warning: **Please include mermaid via HTML tag**
-//
-// mermaid's module declaration is buggy (v8.0.0). HyperMD gave up importing it.
-//
-// If using RequireJS or bundler (eg. webpack), include `<script src="path/to/mermaid.min.js"></script>` manually,
-// before RequireJS or `dist/your_app.js`
 
+import * as _mermaid_module from "mermaid"
 import * as CodeMirror from "codemirror"
 import { registerRenderer, CodeRenderer, getAddon as getFoldCode } from "../addon/fold-code"
 import { getAddon as getFold } from "../addon/fold"
 
-/** global mermaid */
-declare var mermaid: typeof import("mermaid").default
+/** mermaid */
+var mermaid: typeof _mermaid_module = _mermaid_module || this['mermaid'] || window['mermaid']
 
 export const MermaidRenderer: CodeRenderer = (code, info) => {
   var id = "_mermaid_id_" + Math.round(1e9 * Math.random()).toString(36)
@@ -32,15 +26,11 @@ export const MermaidRenderer: CodeRenderer = (code, info) => {
   var el = document.createElement('div')
   el.setAttribute('id', id)
   el.setAttribute('class', 'hmd-fold-code-image hmd-fold-code-mermaid')
+  el.innerHTML = code;
 
-  mermaid.render(id, code, (svgCode, bindFunctions) => {
-    el.innerHTML = svgCode
-    el.removeAttribute('id')
-    bindFunctions(el)
-    info.changed()
-  });
+  mermaid.run({nodes: [el]})
 
-  return el
+  return el;
 }
 
 if (typeof mermaid === "object") {

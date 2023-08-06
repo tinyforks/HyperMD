@@ -49,7 +49,7 @@
     "katex": "^0.10.0-alpha",
     "marked": "^0.4.0",
     "mathjax": "^2.7.0",
-    "mermaid": "^8.0.0-rc.8",
+    "mermaid": "^10.3.0",
     "turndown": "^7.1.2",
     "turndown-plugin-gfm": "^1.0.2",
     "twemoji": "^11.0.0",

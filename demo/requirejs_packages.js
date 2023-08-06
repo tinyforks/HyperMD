@@ -25,5 +25,5 @@ var requirejs_packages = [
   { name: 'flowchart.js', main: '../../submodules/flowchart.js/release/flowchart.min.js' },
   { name: 'Raphael', main: 'raphael.min.js' }, // stupid
   { name: 'raphael', main: 'raphael.min.js' },
-  // { name: 'mermaid', main: 'dist/mermaid.js' }, // mermaid AMD is buggy and unavaliable
+  { name: 'mermaid', main: 'dist/mermaid.js' },
 ]
