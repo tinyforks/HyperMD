@@ -5,16 +5,11 @@ const utils = require('./utils')
 
 process.chdir(path.join(__dirname, ".."))
 
+const url = 'http://127.0.0.1:8000'
 const app = express()
 app.use(express.static(process.cwd()))
-app.listen(8000, () => console.log('[HyperMD] http://127.0.0.1:8000 is now ready'))
-import('open').then(({default: open}) => {
-  async function opener() {
-    await open('http://127.0.0.1:8000')
-  }
-
-  opener()
-})
+app.listen(8000, () => console.log(`[HyperMD] ${url} is now ready`))
+utils.open_url(url)
 
 utils.npm_run("watch_js")
 buildCSS.scan_and_compile("**/*.scss", true)

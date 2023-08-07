@@ -15,7 +15,6 @@
     "dev": "node dev/dev.js",
     "watch_js": "tsc -w --sourceMap --sourceRoot /src",
     "watch_css": "node dev/build-css.js -w",
-    "pretest": "cd test && tsc && node tools/prepare || echo \"> Done\" && npm run build || echo \"> Done\"",
     "test": "node dev/test.js",
     "clean": "git clean -xdf"
   },
