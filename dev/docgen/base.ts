@@ -85,8 +85,8 @@ function getLanguageService(cl: ts.ParsedCommandLine, virtualFiles: Record<strin
     getCurrentDirectory: () => process.cwd(),
     getCompilationSettings: () => cl.options,
     getDefaultLibFileName: (options) => ts.getDefaultLibFilePath(options),
-    fileExists: sys.fileExists,
-    readFile: sys.readFile,
+    fileExists: fs.existsSync,
+    readFile: (fileName, encoding) => fs.readFileSync(fileName, { encoding: encoding as BufferEncoding }).toString(),
   };
 
   // Create the language service files
