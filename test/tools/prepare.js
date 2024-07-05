@@ -1,8 +1,8 @@
-const path = require('path');
-const fs = require('fs');
-const glob = require('glob');
+import * as path from "path"
+import * as fs from "fs"
+import * as glob from "glob"
 
-process.chdir(path.resolve(path.dirname(__filename), ".."));
+process.chdir(path.resolve(path.dirname(import.meta.dirname), ".."));
 
 Promise.all([
   updateCaseNames(),

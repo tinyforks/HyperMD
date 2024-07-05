@@ -4,8 +4,7 @@ import * as path from "path"
 import { program, srcPath } from "./base"
 import { isExported, getNamedDeclarations } from "./tsUtil";
 import { makeComponentLink, InterfaceProperty, makePropertiesSection, extractInterfaceProperties, makeAutoDocNotice } from "./genUtils";
-
-const config = require("../HyperMD.config")
+import * as config from "../HyperMD.config"
 
 const prologue = `
 Once a HyperMD addons are loaded, you may configure them via editor options.

@@ -1,9 +1,9 @@
-'use strict'
+import * as path from "path"
+import * as fs from "fs"
+import { globSync } from "glob"
+import * as sass from "sass"
 
-const path = require('path')
-const fs = require('fs')
-const { globSync } = require('glob')
-const sass = require('sass')
+'use strict'
 
 function scan_and_compile(pattern = "**/*.scss", watch = false) {
   globSync(pattern, {
@@ -31,24 +31,21 @@ function compile_sass(sourceFilename) {
       fs.writeFile(outputFilename, result.css, function (err) {
         if (!err) {
           console.log("[SCSS] finished " + sourceFilename)
-          if (exports.onChanged) exports.onChanged(sourceFilename, outputFilename)
+          // if (exports.onChanged) exports.onChanged(sourceFilename, outputFilename)
         }
       });
     }
   })
 }
 
-if (require.main === module) {
-  process.chdir(path.join(__dirname, ".."))
-  const watch = process.argv.includes("-w")
+// if (require.main === module) {
+//   process.chdir(path.join(import.meta.dirname, ".."))
+//   const watch = process.argv.includes("-w")
 
-  scan_and_compile("**/*.scss", watch)
-}
+//   scan_and_compile("**/*.scss", watch)
+// }
 
-var exports = {
+export {
   compile_sass,
   scan_and_compile,
-  onChanged: null,
 }
-
-module.exports = exports

@@ -1,10 +1,10 @@
-const path = require('path')
+import * as path from "path"
 
 /**
  * Components that will be bundled into ai1.js (all in one bundle)
  * For each component, you may specific a global name and expose it to global like `HyperMD.FooBar`
  */
-exports.components = {
+export const components = {
   "mode/hypermd": "Mode",
   // "addon/skeleton": "Skeleton",
   "addon/insert-file": "InsertFile",
@@ -31,7 +31,7 @@ exports.components = {
  *
  * Support minimatch pattern syntax
  */
-exports.dummyComponents = [
+export const dummyComponents = [
   "addon/skeleton",
   "powerpack/*",
 ];
@@ -39,7 +39,7 @@ exports.dummyComponents = [
 /**
  * If not using mode loader, try to get 3rd party libraries via these global names
  */
-exports.globalNames = {
+export const globalNames = {
   codemirror: "CodeMirror",
   marked: "marked",
   katex: "katex",
@@ -51,12 +51,12 @@ exports.globalNames = {
   mermaid: "mermaid",
 }
 
-exports.externalNames = Object.keys(exports.globalNames)
+export const externalNames = Object.keys(globalNames)
 
 /**
  * Use RollUp Bundler to make these file(s)
  */
-exports.bundleFiles = [
+export const bundleFiles = [
   {
     entry: "src/everything.ts",
     output: "ai1.js",
@@ -77,7 +77,7 @@ exports.bundleFiles = [
   },
 ]
 
-exports.banner = `
+export const banner = `
 /*!
  * HyperMD, copyright (c) by laobubu
  * Distributed under an MIT license: http://laobubu.net/HyperMD/LICENSE
@@ -107,7 +107,7 @@ exports.banner = `
  * @param {string} [currentFile] if is set, and `moduleID` is relative path, will try to resolve `moduleID`
  * @returns {string}
  */
-exports.getGlobalName = function getGlobalName(moduleID, currentFile) {
+export const getGlobalName = function getGlobalName(moduleID, currentFile) {
   if (!moduleID) return moduleID
   if (currentFile && moduleID.charAt(0) !== ".") return exports.globalNames[moduleID] || null
 

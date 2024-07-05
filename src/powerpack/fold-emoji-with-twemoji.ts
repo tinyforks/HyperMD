@@ -15,7 +15,7 @@ import * as _twemoji_module from 'twemoji'
 import { defaultOption, defaultChecker, defaultRenderer, EmojiRenderer, defaultDict, EmojiChecker } from '../addon/fold-emoji'
 
 /** twemoji */
-var twemoji: typeof _twemoji_module = _twemoji_module || this['twemoji'] || window['twemoji']
+var twemoji: typeof _twemoji_module = _twemoji_module || (this as any)['twemoji'] || window['twemoji']
 
 var twemojiOptions = null
 

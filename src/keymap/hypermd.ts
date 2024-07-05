@@ -31,7 +31,7 @@ const isRealTableSep = (token: Token) => /hmd-table-sep/.test(token.type) && !/h
  * start a table
  */
 export function newlineAndContinue(cm: cm_t) {
-  if (cm.getOption("disableInput")) return CodeMirror.Pass
+  if (cm.getOption("disableInput" as any)) return CodeMirror.Pass
 
   const selections = cm.listSelections()
   var replacements: string[] = []
@@ -143,7 +143,7 @@ export function newlineAndContinue(cm: cm_t) {
 
 /** insert "\n" , or if in list, insert "\n" + indentation */
 export function newline(cm: cm_t) {
-  if (cm.getOption("disableInput")) return CodeMirror.Pass
+  if (cm.getOption("disableInput" as any)) return CodeMirror.Pass
 
   const selections = cm.listSelections()
   var replacements: string[] = repeat("\n", selections.length)
@@ -443,7 +443,7 @@ export function tab(cm: cm_t) {
  * @param rightBracket if null, will use leftBracket
  */
 export function wrapTexts(cm: cm_t, leftBracket: string, rightBracket?: string) {
-  if (cm.getOption("disableInput")) return CodeMirror.Pass
+  if (cm.getOption("disableInput" as any)) return CodeMirror.Pass
 
   var selections = cm.listSelections()
   var replacements = new Array(selections.length)
@@ -516,7 +516,7 @@ export function createStyleToggler(
   getFormattingText: (state?) => string
 ) {
   return function (cm: cm_t) {
-    if (cm.getOption("disableInput")) return CodeMirror.Pass
+    if (cm.getOption("disableInput" as any)) return CodeMirror.Pass
 
     var ts = new TokenSeeker(cm)
     var selections = cm.listSelections()

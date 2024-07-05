@@ -1,7 +1,7 @@
-const path = require('path')
-const utils = require('./utils')
+import * as path from "path"
+import * as utils from "./utils.js"
 
-process.chdir(path.join(__dirname, ".."));
+process.chdir(path.join(import.meta.dirname, ".."));
 
 [
   "build_js",

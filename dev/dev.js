@@ -1,9 +1,9 @@
-const path = require('path')
-const express = require('express')
-const buildCSS = require('./build-css')
-const utils = require('./utils')
+import * as path from "path"
+import express from "express"
+import * as buildCSS from "./build-css.js"
+import * as utils from "./utils.js"
 
-process.chdir(path.join(__dirname, ".."))
+process.chdir(path.join(import.meta.dirname, ".."))
 
 const url = 'http://127.0.0.1:8000'
 const app = express()

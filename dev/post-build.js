@@ -1,13 +1,13 @@
 // this script runs when `npm run build_js` finished
 
-const path = require('path')
-const fs = require('fs')
-const glob = require('glob')
-const minimatch = require('minimatch')
-const config = require('./HyperMD.config.js')
-const utils = require('./utils')
+import * as path from "path"
+import * as fs from "fs"
+import * as glob from "glob"
+import * as minimatch from "minimatch"
+import * as config from "./HyperMD.config.js"
+import * as utils from "./utils.js"
 
-process.chdir(path.join(__dirname, ".."))
+process.chdir(path.join(import.meta.dirname, ".."))
 
 //--------------------------------------------------------------
 // Add "export as namespace HyperMD;" mark
@@ -133,7 +133,7 @@ tsconfig.include.forEach(pattern => {
 
   var src_dir = pattern.slice(0, tmp) // "src/"
 
-  glob(pattern, (err, matches) => {
+  glob.glob(pattern, (err, matches) => {
     if (err) {
       console.error("[HyperMD] Error while searching output files. Pattern = " + pattern)
       console.error(err)

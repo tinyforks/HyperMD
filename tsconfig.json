@@ -1,21 +1,22 @@
 {
   "compilerOptions": {
     "module": "amd",
-    "target": "es5",
+    "target": "es2018",
     "lib": [
-      "es5",
-      "es2015.iterable",
+      "ES2018",
+      "es2019",
       "dom"
     ],
     "declaration": true,
     "outDir": ".",
     "baseUrl": ".",
     "moduleResolution": "node",
+    "skipLibCheck": true,
     "paths": {
       "*": [
         "node_modules/*"
       ]
-    },
+    }
   },
   "include": [
     "src/**/*.ts"

@@ -32,7 +32,7 @@ import { registerRenderer, CodeRenderer, getAddon as getFoldCode } from "../addo
 import { getAddon as getFold } from "../addon/fold"
 
 export const FlowchartRenderer: CodeRenderer = (code, info) => {
-  var fc = flowchart.parse(code)
+  var fc = flowchart.parse(code) as any
   if (Object.keys(fc.symbols).length === 0) return null
 
   var el = document.createElement('div')
@@ -44,7 +44,7 @@ export const FlowchartRenderer: CodeRenderer = (code, info) => {
   document.body.appendChild(tmpContainer)
   tmpContainer.appendChild(el)
 
-  fc.drawSVG(el, info.editor.getOption("flowchart"))
+  fc.drawSVG(el, info.editor.getOption("flowchart" as any))
 
   setTimeout(() => {
     document.body.removeChild(tmpContainer)

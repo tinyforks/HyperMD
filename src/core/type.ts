@@ -29,7 +29,7 @@ declare module "codemirror" {
 
   /// SOME LEGACY METHODS
 
-  var modes: { [mode: string]: CodeMirror.Mode<any> }
+  // var modes: { [mode: string]: CodeMirror.Mode<any> }
 
   /**
    * Compare two positions, return 0 if they are the same,
@@ -61,9 +61,11 @@ declare module "codemirror" {
    *
    * When a map contains multi-stoke bindings or keys with modifiers that
    * are not specified in the default order (Shift-Cmd-Ctrl-Alt) */
-  type KeyMap = {
-    [keyName: string]: Command | ((cm: CodeMirror.Editor) => void) | string
-  }
+
+  type KeyMapExp = CodeMirror.KeyMap;
+  // type KeyMap = {
+  //   [keyName: string]: Command | ((cm: CodeMirror.Editor) => void) | string
+  // }
 
   type BuiltinCommand =
     "selectAll" | //Select the whole content of the editor.
@@ -122,8 +124,8 @@ declare module "codemirror" {
     ;
 
   type Command = keyof CommandFunctions
-  var keyMap: { [keymapName: string]: KeyMap }
-  var commands: CommandFunctions
+  var keyMap: { [keymapName: string]: KeyMapExp }
+  // var commands: CommandFunctions
 
   interface CommandFunctions extends Record<BuiltinCommand, (cm: cm_t) => any> {
     hmdNewline: (cm: cm_t) => any
@@ -132,7 +134,7 @@ declare module "codemirror" {
     hmdTab: (cm: cm_t) => any
   }
 
-  function normalizeKeyMap(keymap: KeyMap): object;
+  function normalizeKeyMap(keymap: KeyMapExp): object;
 
   // codemirror/mode/meta
   interface ModeMeta {

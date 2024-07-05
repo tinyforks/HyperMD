@@ -13,7 +13,7 @@ Promise.all([
 //-------------------------------------------------------------
 
 async function execMaker(filename: string, makerModule: string) {
-  const make = require(makerModule).make
+  const make = await import(makerModule).then(x => x.make)
   const fn = path.join(basePath, "docs", filename)
 
   console.log("[HyperMD] [docgen] Make: " + filename)
@@ -35,7 +35,7 @@ async function execMaker(filename: string, makerModule: string) {
     process.exit(1)
   }
 
-  await new Promise((res, rej) => {
+  await new Promise<void>((res, rej) => {
     fs.writeFile(fn, text, (err) => {
       if (err) {
         console.error("[HyperMD] Failed to write doc: " + filename)

@@ -1,5 +1,5 @@
-const fs = require('fs')
-const child_process = require('child_process')
+import * as fs from "fs"
+import * as child_process from "child_process"
 
 /**
  *
@@ -73,7 +73,7 @@ function open_url(url) {
   })
 }
 
-module.exports = {
+export {
   processTextFile,
   run_command,
   npm_run,

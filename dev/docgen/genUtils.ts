@@ -9,15 +9,22 @@ import { getLineNo, strModPart } from "./strUtil";
 
 export type MarkdownText = string
 
+function stringFromJsDocNodeArray(s: string | ts.NodeArray<ts.JSDocComment>): string {
+  if (typeof s === "string") return s;
+  return s.map(comment => comment.getText()).join(" ");
+}
+
 /**
  * Automatically add markdown links to NamedDeclaration
  */
-export function autoLinkNamedDeclarations(text: string | MarkdownText, sf: ts.SourceFile): MarkdownText {
+export function autoLinkNamedDeclarations(text: string | MarkdownText | ts.NodeArray<ts.JSDocComment>, sf: ts.SourceFile): MarkdownText {
   var declsMap = getNamedDeclarations(sf)
   var matcher = /`+|\w+/g, tmp: RegExpExecArray
   var sfText = sf.text
 
   var insideCode: string = null
+
+  text = stringFromJsDocNodeArray(text);
 
   while (tmp = matcher.exec(text)) {
     var name = tmp[0]
@@ -82,6 +89,7 @@ export function makeDescription(node: ts.JSDocContainer, sf: ts.SourceFile): Mar
 
         let it = `👉 ***${tagName}***`
         if (tagComment) {
+          tagComment = stringFromJsDocNodeArray(tagComment);
           let isCode = ["example"].indexOf(tagName) >= 0 || /^['"]/.test(tagComment)
 
           if (tagComment.includes("\n")) {

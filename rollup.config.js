@@ -2,7 +2,7 @@ import buble from 'rollup-plugin-buble'
 import typescript from 'rollup-plugin-typescript2'
 import terser from '@rollup/plugin-terser'
 
-const { banner, globalNames, externalNames, bundleFiles } = require(__dirname + '/dev/HyperMD.config')
+const { banner, globalNames, externalNames, bundleFiles } = await import(import.meta.dirname + '/dev/HyperMD.config.js')
 
 const plugins = {
   ts: typescript({

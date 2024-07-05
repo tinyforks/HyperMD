@@ -203,7 +203,7 @@ CodeMirror.defineMode("hypermd", function (cmCfg, modeCfgUser) {
     htmlBlock: null,
   }
 
-  var rawMode: CodeMirror.Mode<MarkdownState> = CodeMirror.getMode(cmCfg, modeCfg)
+  var rawMode: CodeMirror.Mode<MarkdownState> = CodeMirror.getMode(cmCfg, modeCfg) as any
   var newMode: CodeMirror.Mode<HyperMDState> = { ...rawMode } as any
 
   newMode.startState = function () {
@@ -231,7 +231,7 @@ CodeMirror.defineMode("hypermd", function (cmCfg, modeCfgUser) {
       "hmdNextPos", "hmdNextState", "hmdNextStyle",
       "hmdHashtag",
     ]
-    for (const key of keys) ans[key] = s[key]
+    for (const key of keys) ans[key as any] = s[key]
 
     ans.hmdTableColumns = s.hmdTableColumns.slice(0)
 
@@ -313,7 +313,7 @@ CodeMirror.defineMode("hypermd", function (cmCfg, modeCfgUser) {
       // now implement some extra features that require higher priority than CodeMirror's markdown
 
       //#region Math
-      if (modeCfg.math && inMarkdownInline && (tmp = stream.match(/^\${1,2}/, false))) {
+      if (modeCfg.math && inMarkdownInline && (tmp = stream.string.match(/^\${1,2}/))) {
         let endTag = tmp[0]
         let mathLevel = endTag.length as (1 | 2)
         if (mathLevel === 2 || stream.string.slice(stream.pos).match(/[^\\]\$/)) {
@@ -338,7 +338,7 @@ CodeMirror.defineMode("hypermd", function (cmCfg, modeCfgUser) {
       //#endregion
 
       //#region [OrgMode] markup
-      if (bol && modeCfg.orgModeMarkup && (tmp = stream.match(/^\#\+(\w+\:?)\s*/))) {
+      if (bol && modeCfg.orgModeMarkup && (tmp = stream.string.match(/^\#\+(\w+\:?)\s*/))) {
         // Support #+TITLE: This is the title of the document
 
         if (!stream.eol()) {
@@ -512,7 +512,7 @@ CodeMirror.defineMode("hypermd", function (cmCfg, modeCfgUser) {
       if (wasLinkText !== state.linkText) {
         if (!wasLinkText) {
           // entering a link
-          tmp = stream.match(/^([^\]]+)\](\(| ?\[|\:)?/, false)
+          tmp = stream.string.match(/^([^\]]+)\](\(| ?\[|\:)?/)
           if (!tmp) { // maybe met a line-break in link text?
             state.hmdLinkType = LinkType.BARELINK
           } else if (!tmp[2]) { // barelink

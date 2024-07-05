@@ -17,7 +17,7 @@ import { defaultOption, EmojiChecker, EmojiRenderer } from '../addon/fold-emoji'
 import 'emoji-toolkit/extras/css/joypixels.min.css'
 
 /** emojiToolkit doesn't have AMD declaration. load it from browser if needed */
-var emojiToolkit: typeof _emoji_toolkit_module = _emoji_toolkit_module || this['emoji-toolkit'] || window['joypixels']
+var emojiToolkit: typeof _emoji_toolkit_module = _emoji_toolkit_module || (this as any)['emoji-toolkit'] || window['joypixels']
 
 export const emojiToolkitChecker: EmojiChecker = (text) => emojiToolkit.shortnameToUnicode(text) != text;
 export const emojiToolkitRenderer: EmojiRenderer = (text) => {

@@ -1,10 +1,10 @@
 // this script runs before `npm run build`
 
-const path = require('path')
-const fs = require('fs')
-const config = require('./HyperMD.config.js')
+import * as path from "path"
+import * as fs from "fs"
+import * as config from "./HyperMD.config.js"
 
-process.chdir(path.join(__dirname, ".."))
+process.chdir(path.join(import.meta.dirname, ".."))
 
 //--------------------------------------------------------------
 // Update src/everything.ts, export all components in all-in-one bundle

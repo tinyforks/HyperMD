@@ -133,7 +133,7 @@ export function registerFolder(name: string, folder: FolderFunc, suggested: bool
 /** break a TextMarker, move cursor to where marker is */
 export function breakMark(cm: cm_t, marker: HmdTextMarker, chOffset?: number) {
   cm.operation(function () {
-    var pos = marker.find().from
+    var pos = (marker.find() as CodeMirror.MarkerRange).from
     pos = { line: pos.line, ch: pos.ch + ~~chOffset }
     cm.setCursor(pos)
     cm.focus()
@@ -424,7 +424,7 @@ export class Fold extends TokenSeeker implements Addon.Addon, FoldStream {
           // this token not folded. check next
           this.i_token++
         } else {
-          var { from, to } = marker.find();
+          var { from, to } = (marker.find() as CodeMirror.MarkerRange);
           (this.folded[type] || (this.folded[type] = [])).push(marker)
           marker._hmd_fold_type = type;
           marker._hmd_crange = this._lastCRange;

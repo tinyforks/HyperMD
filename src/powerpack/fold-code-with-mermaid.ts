@@ -18,14 +18,14 @@ import { registerRenderer, CodeRenderer, getAddon as getFoldCode } from "../addo
 import { getAddon as getFold } from "../addon/fold"
 
 /** mermaid */
-var mermaid: typeof _mermaid_module = _mermaid_module || this['mermaid'] || window['mermaid']
+var mermaid: typeof _mermaid_module = _mermaid_module || (this as any)['mermaid'] || window['mermaid']
 
 export const MermaidRenderer: CodeRenderer = (code, info) => {
   var el = document.createElement('div')
   el.setAttribute('class', 'hmd-fold-code-image hmd-fold-code-mermaid')
   el.innerHTML = code;
 
-  mermaid.run({nodes: [el]})
+  (mermaid as any).run({nodes: [el]})
 
   return el;
 }
