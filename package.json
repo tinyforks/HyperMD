@@ -1,71 +1,8 @@
 {
-  "name": "hypermd",
-  "version": "0.3.11",
-  "description": "A full-featured Markdown editor, breaks the wall between writing and preview.",
-  "type": "module",
-  "main": "./everything.js",
-  "types": "./everything.d.ts",
-  "scripts": {
-    "build": "node dev/build-all.js",
-    "prebuild_js": "node dev/pre-build.js",
-    "build_js": "tsc && rollup -c",
-    "postbuild_js": "node dev/post-build.js",
-    "build_css": "node dev/build-css.js",
-    "build_doc": "cd dev/docgen && tsc && node ../tmp/docgen/index.js ",
-    "dev_init": "git submodule init && git submodule update && npm install",
-    "dev": "node dev/dev.js",
-    "watch_js": "tsc -w --sourceMap --sourceRoot /src",
-    "watch_css": "node dev/build-css.js -w",
-    "test": "node dev/test.js",
-    "clean": "git clean -xdf"
-  },
-  "keywords": [
-    "markdown",
-    "codemirror",
-    "wysiwyg"
-  ],
-  "homepage": "https://laobubu.net/HyperMD/",
-  "author": "laobubu <laobubu@gmail.com> (http://laobubu.net)",
-  "contributors": [
-    "jsimonrichard <jsimonrichard@gmail.com> (https://jsimonrichard.com)"
-  ],
-  "license": "MIT",
-  "devDependencies": {
-    "@rollup/plugin-buble": "^1.0.3",
-    "@rollup/plugin-terser": "^0.4.4",
-    "express": "^4.19.2",
-    "glob": "^10.4.2",
-    "minimatch": "^9.0.5",
-    "open": "^9.1.0",
-    "rollup": "^3.29.4",
-    "sass": "^1.77.6",
-    "typescript": "^5.5.3",
-    "@codemirror/commands": "^6.6.0",
-    "@codemirror/state": "^6.4.1",
-    "@codemirror/view": "^6.28.4",
-    "codemirror": "^6.0.1"
-  },
-  "peerDependencies": {
-    "@codemirror/commands": "^6.6.0",
-    "@codemirror/state": "^6.4.1",
-    "@codemirror/view": "^6.28.4",
-    "codemirror": "^6.0.1"
-  },
-  "optionalDependencies": {
-    "flowchart.js": "^1.18.0",
-    "katex": "^0.16.11",
-    "marked": "^6.0.0",
-    "mathjax": "^3.2.2",
-    "mermaid": "^10.9.1",
-    "turndown": "^7.2.0",
-    "turndown-plugin-gfm": "^1.0.2",
-    "twemoji": "^14.0.2",
-    "emoji-toolkit": "^7.0.1"
-  },
-  "dependencies": {
-    "@types/node": "^20.14.9",
-    "child_process": "^1.0.2",
-    "fs": "^0.0.1-security",
-    "path": "^0.12.7"
-  }
+  "name": "hypermd-workspace",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "docs"
+  ]
 }
